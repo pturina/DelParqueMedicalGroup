@@ -1,0 +1,116 @@
+:root {
+  --section-radius: 25px;
+  --primary-color: rgb(66, 77, 98);
+  --secondary-color: oklch(62.182% 0.04744 263.535);
+  --tertriary-color: #83cbeb;
+  --cuaternary-color: rgba(104, 119, 164, 0.6);
+  --special-color: #83cbeb;
+  --title-font: "KodchiangUPC", serif;
+  --text-font: "Aptos Display", system-ui, sans-serif;
+  --special-gradient: radial-gradient(var(--special-color), #3e889e);
+}
+
+body {
+  min-height: 500px;
+}
+
+#modal-dialog {
+  opacity: 0;
+  transition:
+    display 1s allow-discrete,
+    overlay 1s allow-discrete,
+    translate 1s,
+    opacity 1s;
+  translate: 0 50%;
+  will-change: translate, opacity;
+  border-radius: var(--section-radius);
+  background-color: var(--secondary-color);
+  width: 60%;
+}
+
+#modal-dialog[open] {
+  opacity: 1;
+  translate: 0;
+  @starting-style {
+    opacity: 0;
+    translate: 0 50%;
+  }
+}
+
+#modal-dialog::backdrop {
+  background: linear-gradient(#000d, #000a);
+  opacity: 1;
+  transition:
+    display 1s allow-discrete,
+    opacity 1s;
+
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+#modal-dialog:not([open])::backdrop {
+  opacity: 0;
+}
+
+.modal-button {
+  display: inline-block;
+  text-align: center;
+  background: var(--special-gradient);
+  padding: 0.8em;
+  width: 4em;
+  margin: 1.2em;
+  border-radius: 25px;
+  border: 0px;
+  cursor: pointer;
+}
+
+#modal-dialog h3 {
+  text-shadow: 2px 2px 4px black;
+  font-family: var(--text-font);
+  font-size: 1.4em;
+  text-decoration: wavy;
+  color: #eee;
+  letter-spacing: 0.12em;
+}
+#modal-dialog h4 {
+  font-family: var(--text-font);
+  font-size: 1.2em;
+  color: #eee;
+}
+#modal-dialog ul li {
+  font-family: var(--text-font);
+  font-size: 1.2em;
+  color: #eee;
+}
+.modal-italic {
+  font-family: var(--text-font);
+  font-size: 1.2em;
+  color: #eee;
+  font-style: italic;
+}
+#modal-dialog-content p {
+  font-family: var(--text-font);
+  font-size: 1.1em;
+  text-decoration: wavy;
+  color: #eee;
+  letter-spacing: 0.12em;
+  text-align: justify;
+}
+
+#modal-dialog-content p strong {
+  font-size: 1.12em;
+
+  color: #eee;
+  letter-spacing: 0.12em;
+  text-shadow: 1px 1px 2px black;
+}
+
+#modal-dialog-image {
+  float: left; /* Mueve la imagen a la izquierda y hace que el texto la envuelva */
+  max-width: 250px; /* Define un ancho máximo para la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-right: 15px; /* Separa el texto de la imagen por el lado derecho */
+  margin-bottom: 10px; /* Separa el texto si continúa justo por debajo */
+  border-radius: 8px; /* Opcional: bordes redondeados para la imagen */
+}

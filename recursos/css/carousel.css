@@ -1,0 +1,150 @@
+:root {
+  --title-font: "KodchiangUPC", serif;
+  --text-font: "Aptos Display", system-ui, sans-serif;
+  --special-color: #83cbeb;
+}
+
+/* Marco exterior del carrusel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Altura fija para el carrusel */
+  border-radius: 16px;
+  overflow: hidden; /* Oculta las imágenes que quedan fuera del marco */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Ocultar por completo los botones de radio lógicos */
+.carousel-container input[type="radio"] {
+  display: none;
+}
+
+/* Tira horizontal que contiene todas las diapositivas */
+.carousel-slides {
+  display: flex;
+  width: 300%; /* 3 imágenes = 300% de ancho del marco */
+  height: 100%;
+  /* Transición suave para el desplazamiento lateral */
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cada diapositiva individual */
+.carousel-slide {
+  width: 33.333%; /* Ocupa exactamente un tercio del contenedor total (el 100% del marco visible) */
+  height: 100%;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita que las imágenes se deformen */
+}
+
+/* Asignamos la animación al contenedor de las imágenes */
+.autoplay-animation {
+  display: flex;
+  width: 300%; /* 3 imágenes = 300% de ancho del marco */
+  height: 100%;
+
+  /* Nombre de animación | Duración total del ciclo | Ciclo infinito */
+  animation: carruselAutomatico 42s infinite ease-in-out;
+}
+
+/* Evitamos que la animación se detenga abruptamente si el contenedor mide más */
+.carousel-slide {
+  position: relative;
+  width: 33.333%;
+  height: 100%;
+}
+
+/* DEFINICIÓN DE LOS MOVIMIENTOS EN EL TIEMPO */
+@keyframes carruselAutomatico {
+  /* IMAGEN 1: Se muestra fija del 0% al 25% del tiempo total */
+  0%,
+  25% {
+    transform: translateX(0%);
+  }
+
+  /* TRANSICIÓN: Se mueve hacia la segunda imagen */
+  30%,
+  55% {
+    transform: translateX(-33.333%);
+  }
+
+  /* TRANSICIÓN: Se mueve hacia la tercera imagen */
+  60%,
+  85% {
+    transform: translateX(-66.666%);
+  }
+
+  /* FINAL DEL CICLO: Regresa suavemente al inicio para reiniciar */
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* DETENER EL CARRUSEL AL PASAR EL MOUSE (Opcional pero muy útil) */
+.carousel-container:hover .autoplay-animation {
+  animation-play-state: paused;
+}
+
+/* --- ESTILOS DE LOS TÍTULOS DESCRIPTIVOS (CAPTIONS) --- */
+.slide-caption {
+  position: absolute;
+  bottom: 60px; /* Queda justo arriba de los puntitos */
+  left: 50px;
+  right: 50px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  color: #ffffff;
+  padding: 30px 20px 20px 20px;
+  border-radius: 0 0 16px 16px;
+  font-family: var(--text-font);
+  pointer-events: none; /* Evita que interfiera con los clics de las flechas */
+}
+
+.slide-caption h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slide-caption p {
+  margin: 0;
+  font-size: 1rem;
+  color: #e0e0e0;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- ESTILOS DE LOS TÍTULOS DESCRIPTIVOS (CAPTIONS) --- */
+.slide-caption-main {
+  position: absolute;
+  /*bottom: 60px; /* Queda justo arriba de los puntitos */
+  top: 20px; /* Queda en la parte superior de la imagen */
+  /*left: 50px;*/
+  right: 50px;
+  color: var(--special-color);
+  padding: 30px 20px 20px 20px;
+  border-radius: 0 0 16px 16px;
+  font-family: var(--title-font);
+  pointer-events: none; /* Evita que interfiera con los clics de las flechas */
+  display: flex;
+  justify-content: flex-end; /* Alinea los links al final (derecha) de su contenedor */
+  flex-grow: 1; /* Ocupa todo el espacio vacío para empujar los links a la derecha */
+}
+
+.slide-caption-main h3 {
+  margin: 0 0 8px 0;
+  font-size: 6.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 60%; /* Limita el ancho del título para mejor legibilidad */
+  text-align: right; /* Alinea el texto a la derecha para un efecto más dinámico */
+}
+
+/* Cada slide se vuelve relativo para posicionar su texto internamente */
+.carousel-slide {
+  position: relative;
+  width: 33.333%;
+  height: 100%;
+}

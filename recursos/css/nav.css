@@ -1,0 +1,81 @@
+:root {
+  --nav-background: rgba(0, 0, 0, 0.4);
+  --nav-background-collapsed: rgba(0, 0, 0, 0.8);
+  --title-font: "KodchiangUPC", serif;
+  --text-font: "Aptos Display", system-ui, sans-serif;
+}
+
+.header-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--nav-background);
+  overflow: hidden; /* Evita que el texto desborde durante la animación */
+  max-height: 100px; /* Un valor mayor a la altura real de tu contenedor */
+  transition:
+    max-height 0.4s ease,
+    padding 0.4s ease,
+    opacity 0.3s ease;
+}
+
+header .header-info p {
+  margin: 0;
+  padding: 2px 0;
+  color: #fff;
+  font-size: 18px;
+  margin: 2px;
+  padding: 0% 5px;
+  border: 1px solid #fff;
+  font-family: var(--text-font);
+}
+
+/* Clase que aplicará JS para ocultar el elemento hacia arriba */
+.header-info.is-hidden {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
+  pointer-events: none; /* Evita clicks accidentales mientras está oculto */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+header nav {
+  height: 50px;
+  display: flex;
+  align-items: center; /* Centra verticalmente el logo y los links entre sí */
+  width: 100%; /* Asegura que el nav use todo el ancho disponible */
+  background: var(--nav-background);
+  height: 50px;
+}
+
+header nav a {
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  font-weight: bold;
+  vertical-align: middle;
+  font-style: normal;
+  font-family: var(--text-font);
+}
+
+.logo {
+  height: 50px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.nav-links-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea los links al final (derecha) de su contenedor */
+  flex-grow: 1; /* Ocupa todo el espacio vacío para empujar los links a la derecha */
+}

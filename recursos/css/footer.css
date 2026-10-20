@@ -1,0 +1,135 @@
+:root {
+  --section-radius: 25px;
+  --primary-color: rgb(66, 77, 98);
+  --secondary-color: oklch(62.182% 0.04744 263.535);
+  --tertriary-color: #83cbeb;
+  --cuaternary-color: rgba(104, 119, 164, 0.6);
+  --special-color: #83cbeb;
+}
+/*= Footer =*/
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: var(--secondary-color);
+  box-sizing: border-box;
+  border-radius: 15px 15px 0px 0px;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none; /* 🔥 Bloquea clics por defecto al cargar la página */
+
+  transition: opacity 0.2s ease;
+}
+#page-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+#page-footer.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(100%); /* Lo oculta hacia abajo */
+}
+.footer-map {
+  width: 60%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 250px;
+  border: 0;
+  border-radius: var(--section-radius);
+  display: block; /* Elimina espacios vacíos debajo del iframe */
+}
+
+.footer-info {
+  width: 40%;
+  box-sizing: border-box;
+  padding: 20px;
+  color: #fff;
+  font-size: 18px;
+  font-family: var(--text-font);
+
+  /* Activamos flexbox para separar textos e íconos */
+  display: flex;
+  justify-content: space-between; /* Texto a la izquierda, iconos a la derecha */
+  align-items: center; /* Centra los dos bloques verticalmente entre sí */
+}
+
+/* Bloque izquierdo de textos */
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Espaciado uniforme entre los párrafos */
+}
+
+.info-text p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.info-text a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Bloque derecho de redes sociales */
+.info-social {
+  display: flex;
+  flex-direction: column; /* Alinea los íconos uno debajo del otro */
+  gap: 15px; /* Controla la distancia de separación entre íconos */
+  padding-left: 15px; /* Margen de seguridad con respecto a los textos */
+  padding-right: 4em;
+  align-items: left;
+}
+
+.info-social a {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+/* Estilos de los íconos SVG */
+.social-icon {
+  width: 48px; /* Tamaño del ícono */
+  height: 48px;
+  fill: #fff; /* Color del ícono SVG (blanco) */
+  transition: fill 0.2s ease;
+}
+
+/* Efecto visual opcional cuando pasas el cursor */
+.info-social a:hover {
+  transform: scale(1.15); /* Crece ligeramente */
+}
+.info-social a:hover .social-icon {
+  fill: var(
+    --special-color
+  ); /* Cambia al color secundario de tu marca al pasar el mouse */
+}
+/* Barra inferior de Copyright */
+.copyright {
+  width: 100%; /* Fuerza el salto de línea al ocupar todo el ancho */
+  box-sizing: border-box;
+  text-align: center; /* Centra el texto */
+  padding: 15px 20px; /* Relleno interno vertical y horizontal */
+  border-top: 1px solid #fff;
+  color: #000;
+  font-size: 14px;
+}
+
+.copyright p {
+  margin: 0; /* Elimina márgenes internos que puedan empujar el div hacia afuera */
+}

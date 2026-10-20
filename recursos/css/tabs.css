@@ -1,0 +1,72 @@
+.tabs-container {
+  width: 100%;
+  /*max-width: 900px; */ /* Ajusta según tu diseño general */
+  margin: 2em auto;
+  font-family: "Arial", sans-serif;
+  border: 1px solid #ffffff; /* Borde exterior blanco de la imagen */
+  box-sizing: border-box;
+}
+
+/* --- ENCABEZADO (BOTONES) --- */
+.tabs-header {
+  display: flex;
+  background-color: #24334a; /* Azul muy oscuro de fondo */
+  border-bottom: 1px solid #ffffff;
+}
+
+.tab-btn {
+  flex: 1; /* Hace que los 3 botones midan exactamente lo mismo */
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 1.2em 0.5em;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+/* Bordes divisorios entre botones */
+.tab-btn:not(:last-child) {
+  border-right: 1px solid #ffffff;
+}
+
+/* Pestaña activa (Resaltada como en las capturas) */
+.tab-btn.active {
+  background-color: #5d6d88; /* Azul grisáceo claro cuando se selecciona */
+}
+
+/* --- CUERPO DEL CONTENIDO --- */
+.tab-content {
+  display: none; /* Oculto por defecto */
+  background-color: #34465e; /* Azul intermedio del panel interno */
+  color: #ffffff;
+  padding: 1.5em 2em;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Mostrar solo el contenido activo */
+.tab-content.active {
+  display: block;
+}
+
+/* Estilos para listas internas */
+.tab-content ul {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.tab-content li {
+  margin-bottom: 0.6em;
+}
+
+/* Estilos para el texto de Nuevas Tecnologías */
+.tab-content strong {
+  display: block;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-size: 1.05em;
+}

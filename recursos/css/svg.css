@@ -1,0 +1,18 @@
+.enlace-whatsapp {
+  display: inline-block; /* Permite que el enlace tenga dimensiones correctas */
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.icono-ws {
+  width: 40px; /* Controla el tamaño del icono de forma proporcional */
+  height: 40px;
+  display: block;
+}
+
+/* Efecto visual al pasar el cursor sobre el enlace */
+.enlace-whatsapp:hover {
+  transform: scale(1.1); /* Agranda el icono un 10% */
+  opacity: 0.9; /* Suaviza un poco el color */
+}

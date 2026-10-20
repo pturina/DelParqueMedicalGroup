@@ -1,0 +1,112 @@
+.contact-form-container {
+  background: var(--secondary-color);
+  border-radius: var(--section-radius);
+  padding: 2.5em;
+  margin: 1.5em 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-family: var(--text-font);
+  box-sizing: border-box;
+}
+
+.contact-form-container h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  color: #1a2a3a;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #1a2a3a;
+  font-size: 0.95em;
+}
+
+/* Campos de texto y textarea */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #1a2a3a;
+  background-color: #ffffff;
+}
+
+.contact-form textarea {
+  resize: vertical; /* Permite estirar solo hacia abajo */
+}
+
+/* Grupo de botones Radio */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  margin-top: 0.2em;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  font-weight: normal !important; /* Desactiva el bold del label padre */
+}
+
+.radio-label input[type="radio"] {
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+  accent-color: #1a2a3a; /* Cambia el color del radio activo al azul oscuro */
+}
+
+/* Botón de envío */
+.btn-submit {
+  background-color: #1a2a3a;
+  color: white;
+  border: none;
+  padding: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2c4259;
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+}

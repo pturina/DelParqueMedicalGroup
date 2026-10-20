@@ -1,0 +1,185 @@
+:root {
+  --section-radius: 25px;
+  --primary-color: rgb(66, 77, 98);
+  --secondary-color: oklch(62.182% 0.04744 263.535);
+  --tertriary-color: #83cbeb;
+  --cuaternary-color: rgba(104, 119, 164, 0.6);
+  --special-color: #83cbeb;
+  --title-font: "KodchiangUPC", serif;
+  --text-font: "Aptos Display", system-ui, sans-serif;
+}
+.services-cards-container {
+  display: grid;
+  /*grid-template-columns: 3fr 3fr 3fr;*/
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  width: 100%;
+  padding-top: 20px;
+  gap: 1em;
+}
+.services-card {
+  /*width: 400px;*/ /* Puedes cambiar este ancho; el alto se adaptará automáticamente */
+  aspect-ratio: 8 / 5;
+  background-color: var(--secondary-color);
+  border-radius: var(--section-radius); /* Bordes redondeados sofisticados */
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  font-family: var(--text-font);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra sutil elegante */
+  transition: transform 0.2s ease;
+}
+
+/* Efecto hover sutil al pasar el mouse */
+.services-card:hover {
+  transform: translateY(-4px);
+  cursor: pointer;
+}
+
+/* Contenedor del icono SVG */
+.services-card-icon {
+  width: 154px;
+  height: 154px;
+  margin-bottom: 14px;
+}
+
+/* Texto de la tarjeta */
+.services-card-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/*===== ECO card ======*/
+.eco-card-container {
+  background: var(--secondary-color);
+  border-radius: var(--section-radius);
+  display: grid;
+  grid-template-columns: 8fr 3fr;
+  gap: 1em;
+  padding: 1em;
+  margin: 1em 0px;
+  max-height: 9em;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.eco-card-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
+
+.eco-card-container:hover .eco-card-image img {
+  transform: scale(1.1);
+  /* Agranda la imagen un 10% de su tamaño original */
+  transition: transform 0.3s ease;
+}
+
+/* 1. Preparamos el contenedor de la derecha */
+.eco-card-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--section-radius); /* Movido aquí para que corte el blur */
+  width: 100%;
+  height: 100%;
+}
+
+/* 2. Creamos la capa del fondo con el blur */
+.eco-card-image img {
+  /*  content: "";*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Carga de la imagen y tamaño al 100% de ancho */
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center; /* Centra la imagen si el alto varía */
+}
+
+.eco-card-caption {
+  font-family: var(--text-font);
+  color: #fff;
+}
+.eco-card-caption h4 {
+  font-size: 1.4em;
+}
+.eco-card-caption p {
+  font-size: 1.1em;
+}
+.contact-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide en dos columnas iguales */
+  gap: 1.5em;
+  padding: 1em;
+  margin: 1em 0;
+  font-family: var(--text-font);
+}
+
+.contact-card-trabajo,
+.contact-card-horarios {
+  background: var(--tertriary-color);
+  border-radius: var(--section-radius);
+  padding: 2em; /* Espaciado interno generoso */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Sombra más sutil y realista */
+  box-sizing: border-box;
+}
+
+/* Títulos principales */
+.contact-card-container h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  color: #1a2a3a; /* Azul oscuro para los títulos */
+  text-align: center;
+}
+
+/* Sección de Correo */
+.contact-card-trabajo p {
+  font-size: 1.75em;
+  line-height: 1.5;
+}
+
+.contact-card-trabajo strong {
+  color: #b30000;
+  display: block;
+  margin-top: 0.5em;
+  word-break: break-all; /* Evita que el mail se desborde */
+}
+
+/* Sección de Horarios organizada en columnas internas */
+.horarios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+}
+
+.horarios-col h4 {
+  font-size: 1.1em;
+  color: #333;
+  margin: 0 0 1em 0;
+}
+
+.horarios-col p {
+  margin: 0.2em 0;
+  font-size: 1.15em;
+}
+
+.horarios-col p strong {
+  color: #000;
+  display: block;
+  margin-bottom: 0.8em;
+}
